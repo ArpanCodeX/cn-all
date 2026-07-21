@@ -1,0 +1,26 @@
+Switch> enable
+Switch# configure terminal
+
+Switch(config)# hostname SW1
+
+SW1(config)# enable secret admin123
+
+SW1(config)# line console 0
+SW1(config-line)# password cisco
+SW1(config-line)# login
+SW1(config-line)# exit
+
+SW1(config)# interface vlan 1
+SW1(config-if)# ip address 192.168.1.2 255.255.255.0
+SW1(config-if)# no shutdown
+SW1(config-if)# exit
+
+SW1(config)# ip default-gateway 192.168.1.1
+
+SW1(config)# end
+
+
+
+verification
+
+show running-config

@@ -1,0 +1,30 @@
+Router 
+enable
+configure terminal
+
+hostname R1
+
+interface gigabitethernet0/0/0
+ip address 192.168.100.1 255.255.255.0
+no shutdown
+exit
+
+ip dhcp excluded-address 192.168.100.1 192.168.100.10
+
+ip dhcp pool LAN
+network 192.168.100.0 255.255.255.0
+default-router 192.168.100.1
+dns-server 8.8.8.8
+exit
+
+
+Desktop
+↓
+IP Configuration
+DHCP
+
+From PC0:
+
+Desktop → Command Prompt
+
+ping 192.168.100.1

@@ -1,0 +1,28 @@
+Router
+
+enable
+configure terminal
+
+hostname R1
+
+enable secret class
+
+line console 0
+password cisco
+login
+exit
+
+interface g0/0
+ip address 192.168.10.1 255.255.255.0
+no shutdown
+exit
+
+interface g0/1
+ip address 172.16.1.1 255.255.255.0
+no shutdown
+exit
+
+end
+write memory
+
+
