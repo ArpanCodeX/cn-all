@@ -20,13 +20,15 @@ while sender < total_frames:
         if i == lost:
             print("Frame", i, "Lost")
             print("No ACK", i)
-        else:
+
+            print("\nSender: Timeout")
+            print("Frame", i, "resent")
             print("ACK", i, "received")
 
-    if lost >= sender and lost < end:
-        print("\nSender: Timeout")
-        print("Retransmitting Frame", lost)
-        print("ACK", lost, "received")
+            lost = -1      # Prevent losing the same frame again
+
+        else:
+            print("ACK", i, "received")
 
     sender += window_size
 
